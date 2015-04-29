@@ -10,3 +10,9 @@ How to curate so we can keep it up to date?
   - upvoting
   - tagging by version
   - moderators
+
+Possible Solutions
+
+  - fork the guides and take over the cookbook section
+  - cookbook wiki
+  - curated website like ember-watch
