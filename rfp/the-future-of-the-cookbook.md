@@ -16,3 +16,4 @@ Possible Solutions
   - fork the guides and take over the cookbook section
   - cookbook wiki
   - curated website like ember-watch
+  - use gists for cookbook recipes
