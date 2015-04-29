@@ -12,8 +12,7 @@ export default Service.extend({
   },
 
   handler: function(func) {
-    var _this;
-    _this = this;
+    var _this = this;
     return function() {
       // wrap the handler in a run function
       // see http://guides.emberjs.com/v1.11.0/understanding-ember/run-loop/#toc_how-is-runloop-behaviour-different-when-testing
