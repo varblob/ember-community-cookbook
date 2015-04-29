@@ -26,8 +26,9 @@ export default Ember.Component.extend({
         // You need to wrap third party event logic in Ember.run
         // if you don't do this unit tests will require you wrap
         // calls that trigger this event in an Ember.run
+        // http://guides.emberjs.com/v1.11.0/understanding-ember/run-loop/#toc_how-is-runloop-behaviour-different-when-testing
         Ember.run(function() {
-          // sending
+          // sending an action so that parent components know data has changed
           _this.sendAction('selected');
         });
       }
