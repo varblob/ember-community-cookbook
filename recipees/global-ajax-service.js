@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
-// don't use Ember directly see
-// https://github.com/dockyard/styleguides/blob/master/ember.md
+// Future versions of Ember will be released as ES2015 modules, so we'll be able to import Ember.computed directly as computed.
+// see https://github.com/dockyard/styleguides/blob/master/ember.md
 var Service = Ember.Service;
 var run = Ember.run;
 

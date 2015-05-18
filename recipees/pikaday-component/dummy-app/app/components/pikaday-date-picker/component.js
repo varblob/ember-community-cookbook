@@ -1,20 +1,27 @@
 import Ember from 'ember';
 
-// NEED to test this
-// Possible issue with setting the initial value pikaday will be null
-export default Ember.Component.extend({
+// Future versions of Ember will be released as ES2015 modules, so
+// we'll be able to import Ember.observer directly as observer.
+// see https://github.com/dockyard/styleguides/blob/master/ember.md
+var Component = Ember.Component;
+var observer = Ember.observer;
+
+export default Component.extend({
   tagName: 'input',
   _pikaday: null,
 
-  // this is likely to become https://github.com/emberjs/rfcs/pull/11
-  value: function(key, value, prevVal){
+  // the date value is changed and accessed via two way binding because
+  // it is an input whos explicit function is to mutate data.  Generally
+  // two way bindings should be avoided.
+  value: null,
+
+  valueObserver: observer('value', function(){
     var pikaday = this.get('_pikaday');
-    if(arguments.length > 1){// set
-      pikaday.setDate(value, true);
-    } else { // get
-      pikaday.get('_pikaday').getDate()
+    var value = this.get('value');
+    if(value !== undefined && pikaday){
+      pikaday.setDate(this.get('value'), true);
     }
-  }.property(),
+  }),
 
   didInsertElement: function() {
     var _this = this;
@@ -29,11 +36,13 @@ export default Ember.Component.extend({
         // http://guides.emberjs.com/v1.11.0/understanding-ember/run-loop/#toc_how-is-runloop-behaviour-different-when-testing
         Ember.run(function() {
           // sending an action so that parent components know data has changed
-          _this.sendAction('selected');
+          _this.set('value', pikaday.getDate());
         });
       }
     });
     this.set('_pikaday', pikaday);
+    // in case the value is already set
+    pikaday.setDate(this.get('value'), true);
   },
 
   // because the dom element corresponding to this component
