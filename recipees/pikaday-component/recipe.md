@@ -78,3 +78,8 @@ Because the dom element corresponding to this component will be destroyed and re
         this.get('_pikaday').destroy();
       }
     });
+
+
+### Example
+
+See a working example of an ember-cli application [here](https://github.com/varblob/ember-community-cookbook/tree/master/recipees/pikaday-component/dummy-app)
