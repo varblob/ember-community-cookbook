@@ -4,7 +4,7 @@ import Ember from 'ember';
 // we'll be able to import Ember.observer directly as observer.
 // see https://github.com/dockyard/styleguides/blob/master/ember.md
 var Component = Ember.Component;
-var observer = Ember.observer;
+var computed = Ember.computed;
 
 export default Component.extend({
   tagName: 'input',
@@ -13,13 +13,15 @@ export default Component.extend({
   // the date value is changed and accessed via two way binding because
   // it is an input whos explicit function is to mutate data.  Generally
   // two way bindings should be avoided.
-  value: null,
-
-  valueObserver: observer('value', function(){
-    var pikaday = this.get('_pikaday');
-    var value = this.get('value');
-    if(value !== undefined && pikaday){
-      pikaday.setDate(this.get('value'), true);
+  value: computed({
+    set(key, value){
+      var pikaday = this.get('_pikaday');
+      // pikaday is not yet instantiated when the value is first set
+      if(pikaday !== null){
+        pikaday.setDate(value, true);
+      }
+      // The return value of set gets cached by Ember
+      return value;
     }
   }),
 
