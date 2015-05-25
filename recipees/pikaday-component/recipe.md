@@ -12,7 +12,7 @@ In this example we're using a simple date picker `UI Component` called pikaday b
 
 ### Importing the third party `UI Component`
 
-In many cases you can avoid the problem entirely by finding an ember addon that already does this for you, it is therefore strongly recommended you search first before writting your own wrapper.  If you can't find an addon then the next best option is to download the file via bower and then import it into your application via the brocfile.
+In many cases you can avoid the problem entirely by finding an ember addon that already does this for you, it is therefore strongly recommended you search ([Ember Observer](http://emberobserver.com/), [Ember Addons](http://www.emberaddons.com/)) first before writting your own wrapper.  If you can't find an addon then the next best option is to download the file via bower and then import it into your application via the brocfile.
 
     
     // brocfile.js
