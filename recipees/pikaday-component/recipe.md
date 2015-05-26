@@ -52,7 +52,7 @@ Most third party `UI Components` need access to a `DOM Element` to work.  In an 
 
 ### Listening for events
 
-When listening for third party `UI Component` events it's important to wrap your event logic in an `Ember.run` call.  If you don't do this unit tests will require you wrap calls that trigger this event in an `Ember.run`.  You can read more [here](http://guides.emberjs.com/v1.11.0/understanding-ember/run-loop/#toc_how-is-runloop-behaviour-different-when-testing).
+When listening for third party `UI Component` events it's important to wrap your event logic in an `Ember.run` call.  If you don't do this unit tests will require you wrap calls that trigger this event in an `Ember.run`.  [Read more about Ember.run and testing](http://guides.emberjs.com/v1.11.0/understanding-ember/run-loop/#toc_how-is-runloop-behaviour-different-when-testing).
 
     onSelect: function() {
       Ember.run(function() {
@@ -87,7 +87,7 @@ Your library will probably have state that you will want to keep in sync so it c
 
 ### Cleaning up
 
-Because the `DOM Element` corresponding to this `Ember.Component` will be destroyed and recreated whenever there is a template rerender, it's essential to cleanup.  If your third party `UI Component` hase a destroy or similar function, it should be called here.  You should also be mindful of any event listeners you may have added and be sure to remove them if it is not done so automatically by the destroy function.  You can read more about cleaning up [here](https://medium.com/@chrisdmasters/cleaning-up-after-components-in-ember-js-73bbf0f16add)
+Because the `DOM Element` corresponding to this `Ember.Component` will be destroyed and recreated whenever there is a template rerender, it's essential to cleanup.  If your third party `UI Component` hase a destroy or similar function, it should be called here.  You should also be mindful of any event listeners you may have added and be sure to remove them if it is not done so automatically by the destroy function.  [Read more about cleaning up](https://medium.com/@chrisdmasters/cleaning-up-after-components-in-ember-js-73bbf0f16add)
 
       willDestroyElement: function() {
         this.get('_pikaday').destroy();
