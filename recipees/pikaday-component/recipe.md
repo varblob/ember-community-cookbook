@@ -87,7 +87,7 @@ Your library will probably have state that you will want to keep in sync so it c
 
 ### Cleaning up
 
-Because the `DOM Element` corresponding to this `Ember.Component` will be destroyed and recreated whenever there is a template rerender, it's essential to cleanup.  If your third party `UI Component` hase a destroy or similar function, it should be called here.  You should also be mindful of any event listeners you may have added and be sure to remove them if it is not done so automatically by the destroy function.  You can read more about cleaning up [here][https://medium.com/@chrisdmasters/cleaning-up-after-components-in-ember-js-73bbf0f16add]
+Because the `DOM Element` corresponding to this `Ember.Component` will be destroyed and recreated whenever there is a template rerender, it's essential to cleanup.  If your third party `UI Component` hase a destroy or similar function, it should be called here.  You should also be mindful of any event listeners you may have added and be sure to remove them if it is not done so automatically by the destroy function.  You can read more about cleaning up [here](https://medium.com/@chrisdmasters/cleaning-up-after-components-in-ember-js-73bbf0f16add)
 
       willDestroyElement: function() {
         this.get('_pikaday').destroy();
