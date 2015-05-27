@@ -38,6 +38,8 @@ If the file is also unavailable via bower you can download the javascript direct
 Most third party `UI Components` need access to a `DOM Element` to work.  In an `Ember.Component` the `DOM Element` is first available when `didInsertElement` is called.  Because properties set on the `Ember.Component` will already be set before `didInsertElement` is called, these values can be accessed to set your third party `UI Component`'s initial configuration.
 
       didInsertElement: function() {
+        // Not strictly needed because super doesn't do anything in this particular case
+        this._super.apply(this, arguments);
         var _this = this;
         var pikaday = new Pikaday({
           // this.$() grabs the jquery DOM Element of this Ember.Component
@@ -90,6 +92,8 @@ Your library will probably have state that you will want to keep in sync so it c
 Because the `DOM Element` corresponding to this `Ember.Component` will be destroyed and recreated whenever there is a template rerender, it's essential to cleanup.  If your third party `UI Component` hase a destroy or similar function, it should be called here.  You should also be mindful of any event listeners you may have added and be sure to remove them if it is not done so automatically by the destroy function.  [Read more about cleaning up](https://medium.com/@chrisdmasters/cleaning-up-after-components-in-ember-js-73bbf0f16add)
 
       willDestroyElement: function() {
+        // Not strictly needed because super doesn't do anything in this particular case
+        this._super.apply(this, arguments);
         this.get('_pikaday').destroy();
       }
     });

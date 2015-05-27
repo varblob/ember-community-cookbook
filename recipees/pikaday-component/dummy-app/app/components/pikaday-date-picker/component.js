@@ -26,6 +26,9 @@ export default Component.extend({
   }),
 
   didInsertElement: function() {
+    // Not strictly needed because super doesn't do anything in this particular case
+    this._super.apply(this, arguments);
+
     var _this = this;
     var pikaday = new Pikaday({
       // this.$() grabs the jquery dom element of this component
@@ -51,6 +54,9 @@ export default Component.extend({
   // will be destroyed and recreated whenever there is a template
   // rerender it's essential to cleanup your third party lib
   willDestroyElement: function() {
+    // Not strictly needed because super doesn't do anything in this particular case
+    this._super.apply(this, arguments);
+
     this.get('_pikaday').destroy();
   }
 });
